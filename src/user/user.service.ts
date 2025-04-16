@@ -22,7 +22,8 @@ export class UserService {
             data: {
                 name: body.name,
                 email: body.email,
-                password: body.password
+                password: body.password,
+                level: body.level
             }
         })
     }

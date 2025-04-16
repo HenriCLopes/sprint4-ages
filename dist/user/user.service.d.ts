@@ -6,6 +6,8 @@ export declare class UserService {
         id: string;
         name: string;
         email: string;
+        level: number;
+        profile_img: string | null;
         password: string;
         createAt: Date;
         updadedAt: Date;
@@ -14,6 +16,8 @@ export declare class UserService {
         id: string;
         name: string;
         email: string;
+        level: number;
+        profile_img: string | null;
         password: string;
         createAt: Date;
         updadedAt: Date;
@@ -22,6 +26,8 @@ export declare class UserService {
         id: string;
         name: string;
         email: string;
+        level: number;
+        profile_img: string | null;
         password: string;
         createAt: Date;
         updadedAt: Date;
@@ -30,6 +36,8 @@ export declare class UserService {
         id: string;
         name: string;
         email: string;
+        level: number;
+        profile_img: string | null;
         password: string;
         createAt: Date;
         updadedAt: Date;
@@ -38,6 +46,8 @@ export declare class UserService {
         id: string;
         name: string;
         email: string;
+        level: number;
+        profile_img: string | null;
         password: string;
         createAt: Date;
         updadedAt: Date;

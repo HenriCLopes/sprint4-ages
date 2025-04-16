@@ -27,6 +27,7 @@ let UserController = class UserController {
         return this.userService.showUser(id);
     }
     createUser(body) {
+        console.log(body);
         return this.userService.createUser(body);
     }
     updateUser(id, body) {

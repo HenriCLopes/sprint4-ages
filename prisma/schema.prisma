@@ -17,7 +17,15 @@ model User {
   id  String @id @default(uuid())
   name  String
   email String @unique
+  level Int
+  profile_img String?
   password String
   createAt DateTime @default(now())
   updadedAt DateTime @updatedAt
+}
+
+model Room {
+  id String @id @default(uuid())
+  description String
+  acessLevel Int
 }
