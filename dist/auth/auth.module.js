@@ -14,6 +14,8 @@ const auth_controller_1 = require("./auth.controller");
 const constants_1 = require("./constants");
 const user_module_1 = require("../user/user.module");
 const user_service_1 = require("../user/user.service");
+const core_1 = require("@nestjs/core");
+const auth_guard_1 = require("./auth.guard");
 let AuthModule = class AuthModule {
 };
 exports.AuthModule = AuthModule;
@@ -27,7 +29,12 @@ exports.AuthModule = AuthModule = __decorate([
                 signOptions: { expiresIn: '60s' },
             }),
         ],
-        providers: [auth_service_1.AuthService, user_service_1.UserService],
+        providers: [auth_service_1.AuthService, user_service_1.UserService,
+            {
+                provide: core_1.APP_GUARD,
+                useClass: auth_guard_1.AuthGuard,
+            }
+        ],
         controllers: [auth_controller_1.AuthController],
         exports: [auth_service_1.AuthService],
     })
