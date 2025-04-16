@@ -56,6 +56,13 @@ let UserService = class UserService {
             }
         });
     }
+    findOne(username) {
+        return this.prisma.user.findFirst({
+            where: {
+                name: username
+            }
+        });
+    }
 };
 exports.UserService = UserService;
 exports.UserService = UserService = __decorate([

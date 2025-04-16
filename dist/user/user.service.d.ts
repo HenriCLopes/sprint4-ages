@@ -52,4 +52,14 @@ export declare class UserService {
         createAt: Date;
         updadedAt: Date;
     }, never, import("@prisma/client/runtime/library").DefaultArgs, import(".prisma/client").Prisma.PrismaClientOptions>;
+    findOne(username: string): import(".prisma/client").Prisma.Prisma__UserClient<{
+        id: string;
+        name: string;
+        email: string;
+        level: number;
+        profile_img: string | null;
+        password: string;
+        createAt: Date;
+        updadedAt: Date;
+    } | null, null, import("@prisma/client/runtime/library").DefaultArgs, import(".prisma/client").Prisma.PrismaClientOptions>;
 }

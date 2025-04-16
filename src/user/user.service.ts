@@ -1,4 +1,5 @@
 import { Injectable } from "@nestjs/common";
+import { User } from "@prisma/client";
 import { PrismaService } from "src/prisma/prisma.service";
 
 @Injectable()
@@ -45,6 +46,14 @@ export class UserService {
         return this.prisma.user.delete({
             where: {
                 id: id,
+            }
+        })
+    }
+
+    findOne(username: string){
+        return this.prisma.user.findFirst({
+            where: {
+                name: username
             }
         })
     }
