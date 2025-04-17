@@ -9,7 +9,7 @@ export class UserService {
         return this.prisma.user.findMany()
     }
 
-    showUser(id) {
+    showUser(id: string) {
         return this.prisma.user.findUnique({
             where: {
                 id: id,
@@ -17,7 +17,7 @@ export class UserService {
         })
     }
 
-    createUser(body) {
+    createUser(body: { name: string; email: string; password: string; level: number }) {
         return this.prisma.user.create({
             data: {
                 name: body.name,
@@ -28,12 +28,13 @@ export class UserService {
         })
     }
 
-    updateUser(id, body) {
+    updateUser(id: string, body: { name?: string; email?: string; password?: string; level?: number }) {
         return this.prisma.user.update({
             data: {
                 name: body.name,
                 email: body.email,
-                password: body.password
+                password: body.password,
+                level: body.level
             },
             where: {
                 id: id,
@@ -41,7 +42,7 @@ export class UserService {
         })
     }
 
-    remove(id) {
+    remove(id: string) {
         return this.prisma.user.delete({
             where: {
                 id: id,

@@ -20,11 +20,11 @@ let AuthService = class AuthService {
         this.jwtService = jwtService;
         this.prisma = prisma;
     }
-    async signIn(username, password) {
-        console.log(`Attempting login with username: ${username}, password: ${password}`);
+    async signIn(email, password) {
+        console.log(`Attempting login with username: ${email}, password: ${password}`);
         const user = this.prisma.user.findFirst({
             where: {
-                name: username,
+                email: email,
                 password: password,
             },
         });
@@ -33,7 +33,7 @@ let AuthService = class AuthService {
             throw new common_1.UnauthorizedException('Invalid credentials');
         }
         console.log('User authenticated successfully');
-        const payload = { name: username };
+        const payload = { email: email };
         return {
             access_token: this.jwtService.sign(payload),
         };

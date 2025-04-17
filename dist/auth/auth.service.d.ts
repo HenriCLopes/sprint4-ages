@@ -4,7 +4,7 @@ export declare class AuthService {
     private jwtService;
     private prisma;
     constructor(jwtService: JwtService, prisma: PrismaService);
-    signIn(username: string, password: string): Promise<{
+    signIn(email: string, password: string): Promise<{
         access_token: string;
     }>;
 }

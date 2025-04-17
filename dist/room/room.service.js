@@ -9,65 +9,54 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserService = void 0;
+exports.RoomService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../prisma/prisma.service");
-let UserService = class UserService {
+let RoomService = class RoomService {
     prisma;
     constructor(prisma) {
         this.prisma = prisma;
     }
-    showUsers() {
-        return this.prisma.user.findMany();
+    showRooms() {
+        return this.prisma.room.findMany();
     }
-    showUser(id) {
-        return this.prisma.user.findUnique({
+    showRoom(id) {
+        return this.prisma.room.findUnique({
             where: {
                 id: id,
-            }
+            },
         });
     }
-    createUser(body) {
-        return this.prisma.user.create({
+    createRoom(body) {
+        return this.prisma.room.create({
             data: {
-                name: body.name,
-                email: body.email,
-                password: body.password,
-                level: body.level
-            }
+                description: body.description,
+                acessLevel: body.acessLevel,
+            },
         });
     }
-    updateUser(id, body) {
-        return this.prisma.user.update({
+    updateRoom(id, body) {
+        return this.prisma.room.update({
             data: {
-                name: body.name,
-                email: body.email,
-                password: body.password,
-                level: body.level
+                description: body.description,
+                acessLevel: body.acessLevel,
             },
             where: {
                 id: id,
-            }
+            },
         });
     }
     remove(id) {
-        return this.prisma.user.delete({
+        return this.prisma.room.delete({
             where: {
                 id: id,
-            }
-        });
-    }
-    findOne(username) {
-        return this.prisma.user.findFirst({
-            where: {
-                name: username
-            }
+            },
         });
     }
 };
-exports.UserService = UserService;
-exports.UserService = UserService = __decorate([
+exports.RoomService = RoomService;
+exports.RoomService = RoomService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [prisma_service_1.PrismaService])
-], UserService);
-//# sourceMappingURL=user.service.js.map
+], RoomService);
+//# sourceMappingURL=room.service.js.map

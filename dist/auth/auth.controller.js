@@ -22,7 +22,7 @@ let AuthController = class AuthController {
         this.authService = authService;
     }
     signIn(signInDto) {
-        return this.authService.signIn(signInDto.username, signInDto.password);
+        return this.authService.signIn(signInDto.email, signInDto.password);
     }
     getProfile(req) {
         return req.user;
@@ -47,7 +47,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "getProfile", null);
 exports.AuthController = AuthController = __decorate([
-    (0, common_1.Controller)('auth'),
+    (0, common_1.Controller)(''),
     __metadata("design:paramtypes", [auth_service_1.AuthService])
 ], AuthController);
 //# sourceMappingURL=auth.controller.js.map

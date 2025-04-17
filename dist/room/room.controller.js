@@ -12,51 +12,51 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserController = void 0;
+exports.RoomController = void 0;
 const common_1 = require("@nestjs/common");
-const user_service_1 = require("./user.service");
-let UserController = class UserController {
-    userService;
-    constructor(userService) {
-        this.userService = userService;
+const room_service_1 = require("./room.service");
+let RoomController = class RoomController {
+    roomService;
+    constructor(roomService) {
+        this.roomService = roomService;
     }
-    showUsers() {
-        return this.userService.showUsers();
+    showRooms() {
+        return this.roomService.showRooms();
     }
-    showUser(id) {
-        return this.userService.showUser(id);
+    showRoom(id) {
+        return this.roomService.showRoom(id);
     }
-    createUser(body) {
-        return this.userService.createUser(body);
+    createRoom(body) {
+        return this.roomService.createRoom(body);
     }
-    updateUser(id, body) {
-        return this.userService.updateUser(id, body);
+    updateRoom(id, body) {
+        return this.roomService.updateRoom(id, body);
     }
-    remove(id) {
-        return this.userService.remove(id);
+    removeRoom(id) {
+        return this.roomService.remove(id);
     }
 };
-exports.UserController = UserController;
+exports.RoomController = RoomController;
 __decorate([
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "showUsers", null);
+], RoomController.prototype, "showRooms", null);
 __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "showUser", null);
+], RoomController.prototype, "showRoom", null);
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "createUser", null);
+], RoomController.prototype, "createRoom", null);
 __decorate([
     (0, common_1.Put)(':id'),
     __param(0, (0, common_1.Param)('id')),
@@ -64,16 +64,16 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "updateUser", null);
+], RoomController.prototype, "updateRoom", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "remove", null);
-exports.UserController = UserController = __decorate([
-    (0, common_1.Controller)('users'),
-    __metadata("design:paramtypes", [user_service_1.UserService])
-], UserController);
-//# sourceMappingURL=user.controller.js.map
+], RoomController.prototype, "removeRoom", null);
+exports.RoomController = RoomController = __decorate([
+    (0, common_1.Controller)('rooms'),
+    __metadata("design:paramtypes", [room_service_1.RoomService])
+], RoomController);
+//# sourceMappingURL=room.controller.js.map
