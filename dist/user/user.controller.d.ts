@@ -22,7 +22,12 @@ export declare class UserController {
         createAt: Date;
         updadedAt: Date;
     } | null, null, import("@prisma/client/runtime/library").DefaultArgs, import(".prisma/client").Prisma.PrismaClientOptions>;
-    createUser(body: any): import(".prisma/client").Prisma.Prisma__UserClient<{
+    createUser(body: {
+        name: string;
+        email: string;
+        password: string;
+        level: number;
+    }): import(".prisma/client").Prisma.Prisma__UserClient<{
         id: string;
         name: string;
         email: string;
@@ -32,7 +37,12 @@ export declare class UserController {
         createAt: Date;
         updadedAt: Date;
     }, never, import("@prisma/client/runtime/library").DefaultArgs, import(".prisma/client").Prisma.PrismaClientOptions>;
-    updateUser(id: string, body: any): import(".prisma/client").Prisma.Prisma__UserClient<{
+    updateUser(id: string, body: {
+        name?: string;
+        email?: string;
+        password?: string;
+        level?: number;
+    }): import(".prisma/client").Prisma.Prisma__UserClient<{
         id: string;
         name: string;
         email: string;
