@@ -22,4 +22,5 @@ exports.PrismaService = PrismaService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [])
 ], PrismaService);
+console.log(process.env.DATABASE_URL);
 //# sourceMappingURL=prisma.service.js.map

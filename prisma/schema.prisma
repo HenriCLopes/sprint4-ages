@@ -27,5 +27,7 @@ model User {
 model Room {
   id String @id @default(uuid())
   description String
-  acessLevel Int
+  acessLevel Int      
+  createdAt   DateTime @default(now()) // Data de criação da sala
+  updatedAt   DateTime @updatedAt // Data de atualização da sala
 }
