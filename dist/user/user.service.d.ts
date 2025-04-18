@@ -27,7 +27,7 @@ export declare class UserService {
         email: string;
         password: string;
         level: number;
-    }): import(".prisma/client").Prisma.Prisma__UserClient<{
+    }): Promise<{
         id: string;
         name: string;
         email: string;
@@ -36,7 +36,7 @@ export declare class UserService {
         password: string;
         createAt: Date;
         updadedAt: Date;
-    }, never, import("@prisma/client/runtime/library").DefaultArgs, import(".prisma/client").Prisma.PrismaClientOptions>;
+    }>;
     updateUser(id: string, body: {
         name?: string;
         email?: string;

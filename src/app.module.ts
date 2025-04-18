@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './user/user.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
@@ -7,7 +8,7 @@ import { APP_GUARD } from '@nestjs/core';
 import { RoomModule } from './room/room.moduel';
 
 @Module({
-  imports: [UserModule, PrismaModule, AuthModule, RoomModule],
+  imports: [ConfigModule.forRoot({ isGlobal: true }), UserModule, PrismaModule, AuthModule, RoomModule], // 👈 carrega o .env
   providers: [
     {
       provide: APP_GUARD,

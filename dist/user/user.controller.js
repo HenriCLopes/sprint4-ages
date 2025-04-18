@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
 const common_1 = require("@nestjs/common");
 const user_service_1 = require("./user.service");
+const auth_guard_1 = require("../auth/auth.guard");
 let UserController = class UserController {
     userService;
     constructor(userService) {
@@ -27,6 +28,7 @@ let UserController = class UserController {
         return this.userService.showUser(id);
     }
     createUser(body) {
+        console.log('Dados recebidos no controller:', body);
         return this.userService.createUser(body);
     }
     updateUser(id, body) {
@@ -51,6 +53,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "showUser", null);
 __decorate([
+    (0, auth_guard_1.Public)(),
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),

@@ -13,6 +13,7 @@ exports.AuthService = void 0;
 const common_1 = require("@nestjs/common");
 const jwt_1 = require("@nestjs/jwt");
 const prisma_service_1 = require("../prisma/prisma.service");
+const bcrypt = require("bcrypt");
 let AuthService = class AuthService {
     jwtService;
     prisma;
@@ -21,19 +22,15 @@ let AuthService = class AuthService {
         this.prisma = prisma;
     }
     async signIn(email, password) {
-        console.log(`Attempting login with username: ${email}, password: ${password}`);
-        const user = this.prisma.user.findFirst({
+        const user = await this.prisma.user.findFirst({
             where: {
                 email: email,
-                password: password,
             },
         });
-        if (!user) {
-            console.log('Invalid credentials');
+        if (!user || !(await bcrypt.compare(password, user.password))) {
             throw new common_1.UnauthorizedException('Invalid credentials');
         }
-        console.log('User authenticated successfully');
-        const payload = { email: email };
+        const payload = { email: user.email, level: user.level, sub: user.id };
         return {
             access_token: this.jwtService.sign(payload),
         };

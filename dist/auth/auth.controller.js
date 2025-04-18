@@ -11,17 +11,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var AuthController_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthController = void 0;
 const common_1 = require("@nestjs/common");
 const auth_guard_1 = require("./auth.guard");
 const auth_service_1 = require("./auth.service");
-let AuthController = class AuthController {
+let AuthController = AuthController_1 = class AuthController {
     authService;
+    logger = new common_1.Logger(AuthController_1.name);
     constructor(authService) {
         this.authService = authService;
+        this.logger.log('✅ AuthController carregado!');
     }
     signIn(signInDto) {
+        this.logger.log('🔐 POST /login chamado');
         return this.authService.signIn(signInDto.email, signInDto.password);
     }
     getProfile(req) {
@@ -46,7 +50,7 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "getProfile", null);
-exports.AuthController = AuthController = __decorate([
+exports.AuthController = AuthController = AuthController_1 = __decorate([
     (0, common_1.Controller)(''),
     __metadata("design:paramtypes", [auth_service_1.AuthService])
 ], AuthController);
